@@ -3,13 +3,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvnw clean package'
+                sh 'mvn clean package'
             }
         }
         stage('Static Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvnw sonar:sonar'
+                    sh 'mvn sonar:sonar'
                 }
             }
         }
