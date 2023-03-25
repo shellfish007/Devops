@@ -1,17 +1,11 @@
-pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        stage('Static Analysis') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
-                }
-            }
-        }
+node {
+  stage('SCM') {
+    checkout scm
+  }
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=sonarqube"
     }
+  }
 }
