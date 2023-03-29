@@ -13,7 +13,7 @@ node {
   stage('Build') {
     steps {
       sh 'mvn clean package'
-      archiveArtifacts 'target/*.jar'
+      archiveArtifacts 'target/petclinic.jar'
     }
   }
 
