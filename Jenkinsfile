@@ -13,10 +13,10 @@ node {
   stage('Build') {
     def mvn = tool 'maven';
     sh "${mvn}/bin/mvn clean package"
-    archiveArtifacts 'target/petclinic.jar'
+    // archiveArtifacts 'target/petclinic.jar'
   }
 
   stage('Run') {
-    sh 'java -jar target/petclinic.jar'
+    sh 'java -jar target/spring-petclinic-3.0.0-SNAPSHOT.jar'
   }
 }
