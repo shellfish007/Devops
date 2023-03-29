@@ -11,7 +11,8 @@ node {
   }
 
   stage('Build') {
-    sh 'mvn clean package'
+    def mvn = tool 'maven';
+    sh '${mvn}/bin/mvn clean package'
     archiveArtifacts 'target/petclinic.jar'
   }
 
