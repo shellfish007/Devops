@@ -12,11 +12,11 @@ node {
 
   stage('Build') {
     def mvn = tool 'maven';
-    sh "${mvn}/bin/mvn clean package"
+    sh "${mvn}/bin/mvn clean package -DfinalName=petclinic"
     // archiveArtifacts 'target/petclinic.jar'
   }
 
   stage('Run') {
-    sh 'java -Dserver.port=50000 -jar target/spring-petclinic-3.0.0-SNAPSHOT.jar'
+    sh 'java -Dserver.port=50000 -jar target/petclinic.jar'
   }
 }
