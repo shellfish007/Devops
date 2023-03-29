@@ -17,6 +17,6 @@ node {
   }
 
   stage('Run') {
-    sh 'java -Dserver.port=8000 -jar target/spring-petclinic-3.0.0-SNAPSHOT.jar'
+    sh 'java -Dserver.port=50000 -jar target/spring-petclinic-3.0.0-SNAPSHOT.jar'
   }
 }
