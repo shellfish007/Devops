@@ -11,15 +11,11 @@ node {
   }
 
   stage('Build') {
-    steps {
-      sh 'mvn clean package'
-      archiveArtifacts 'target/petclinic.jar'
-    }
+    sh 'mvn clean package'
+    archiveArtifacts 'target/petclinic.jar'
   }
 
   stage('Run') {
-    steps {
-      sh 'java -jar target/petclinic.jar'
-    }
+    sh 'java -jar target/petclinic.jar'
   }
 }
