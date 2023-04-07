@@ -1,0 +1,5 @@
+---
+- name: Deploy PetClinic app
+  hosts: web_server
+  roles:
+    - deploy_petclinic

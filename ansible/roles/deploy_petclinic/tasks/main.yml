@@ -1,0 +1,17 @@
+---
+- name: Download PetClinic WAR file
+  get_url:
+    url: https://github.com/spring-projects/spring-petclinic/releases/download/2.5.0/spring-petclinic-2.5.0.war
+    dest: /tmp/petclinic.war
+
+- name: Deploy PetClinic app to Web server
+  copy:
+    src: target/spring-petclinic-3.0.0-SNAPSHOT.jar
+    dest: /usr/local/tomcat/webapps/petclinic.war
+
+- name: Run PetClinic JAR file
+  command: java -jar /path/to/target/spring-petclinic-3.0.0-SNAPSHOT.jar
+  args:
+    chdir: /path/to/target
+  async: 60
+  poll: 0
