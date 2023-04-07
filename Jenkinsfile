@@ -8,7 +8,7 @@ node {
     sh "${mvn}/bin/mvn clean package"
   }
 
-  stage('Run') {
-    sh 'java -Dserver.port=50001 -jar target/spring-petclinic-3.0.0-SNAPSHOT.jar'
+  stage("execute Ansible") {
+    ansiblePlaybook installation: 'Ansible', playbook: 'ansible/petclinic.yml'   
   }
 }
