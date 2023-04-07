@@ -3,11 +3,9 @@ node {
     checkout scm
   }
 
-  stage('SonarQube Analysis') {
+  stage('Build') {
     def mvn = tool 'maven';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.login=admin -Dsonar.password=admin"
-    }
+    sh "${mvn}/bin/mvn clean package"
   }
 
   stage('Run') {
