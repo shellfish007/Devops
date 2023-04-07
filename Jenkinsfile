@@ -9,6 +9,6 @@ node {
   }
 
   stage("execute Ansible") {
-    ansiblePlaybook installation: 'Ansible', ansibleCfg: 'ansible/ansible.cfg', playbook: 'ansible/petclinic.yml'   
+    ansiblePlaybook installation: 'Ansible', inventory: 'ansible/hosts.ini', playbook: 'ansible/petclinic.yml'   
   }
 }
