@@ -1,9 +1,4 @@
 ---
-- name: Starting Docker Daemon
-  service:
-      name: "docker"
-      state: started
-      enabled: yes
 - name: Deploy PetClinic app to Web server
   copy:
     src: target/spring-petclinic-3.0.0-SNAPSHOT.jar
