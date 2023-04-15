@@ -7,4 +7,4 @@
         src: /var/jenkins_home/workspace/jenkins_job/target/spring-petclinic-3.0.0-SNAPSHOT.jar
         dest: /usr/local/petclinic.jar
     - name: Run PetClinic JAR file
-      command: java -jar /usr/local/petclinic.jar
+      command: java -Dserver.port=50001 -jar /usr/local/petclinic.jar
