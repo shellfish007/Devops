@@ -1,8 +1,0 @@
----
-- name: Deploy PetClinic app to Web server
-  copy:
-    src: target/spring-petclinic-3.0.0-SNAPSHOT.jar
-    dest: /usr/local/tomcat/webapps/petclinic.jar
-
-- name: Run PetClinic JAR file
-  command: java -jar /usr/local/tomcat/webapps/petclinic.jar
