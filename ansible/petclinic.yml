@@ -2,17 +2,9 @@
 - hosts: webservers 
   become: True
   tasks:
-    - name: Install packages
-      yum:
-        name: "httpd"
-        state: "present"
-    - name: Start Apache server
-      service:
-        name: httpd
-        state: started
-        enabled: True
-    - name: Deploy static website
+    - name: Deploy PetClinic app to Web server
       copy:
-        src: index.html
-        dest: /var/www/html/
-...
+        src: target/spring-petclinic-3.0.0-SNAPSHOT.jar
+        dest: /usr/local/tomcat/webapps/petclinic.jar
+    - name: Run PetClinic JAR file
+      command: java -jar /usr/local/tomcat/webapps/petclinic.jar
