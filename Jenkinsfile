@@ -9,6 +9,6 @@ node {
   }
 
   stage("execute Ansible") {
-    ansiblePlaybook installation: 'ansible', credentialsId:'private-key', inventory: 'ansible/dev.inv', playbook: 'ansible/petclinic.yml'   
+    ansiblePlaybook installation: 'ansible', credentialsId:'private-key', disableHostKeyChecking: true, inventory: 'ansible/dev.inv', playbook: 'ansible/petclinic.yml'   
   }
 }
